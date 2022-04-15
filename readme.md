@@ -12,3 +12,6 @@ arch -arm64 brew install cocoapods
    org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 
 4. npx react-native link react-native-vector-icons
+
+5. brew tap homebrew/cask-versions
+   brew install --cask zulu11
