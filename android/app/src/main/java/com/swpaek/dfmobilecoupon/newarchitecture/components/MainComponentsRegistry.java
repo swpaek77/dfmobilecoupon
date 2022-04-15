@@ -1,4 +1,4 @@
-package com.dfmobilecoupon.newarchitecture.components;
+package com.swpaek.dfmobilecoupon.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

@@ -1,4 +1,4 @@
-package com.dfmobilecoupon;
+package com.swpaek.dfmobilecoupon;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

@@ -1,4 +1,4 @@
-package com.dfmobilecoupon.newarchitecture.modules;
+package com.swpaek.dfmobilecoupon.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
