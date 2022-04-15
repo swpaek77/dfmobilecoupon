@@ -1,0 +1,7 @@
+sudo gem uninstall cocoapods
+arch -arm64 brew upgrade
+arch -arm64 brew install cocoapods
+[https://github.com/facebook/react-native/issues/33017]
+
+1. pod install
+   [pod install --repo-update]
