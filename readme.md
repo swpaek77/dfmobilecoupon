@@ -10,3 +10,5 @@ arch -arm64 brew install cocoapods
 
 3. android build memory
    org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+
+4. npx react-native link react-native-vector-icons
