@@ -1,11 +1,49 @@
-import * as React from 'react';
-import { Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 function HomeScreen() {
+  // const { adLoaded, adDismissed, show } = useInterstitialAd(TestIds.REWARDED_INTERSTITIAL);
+
+  // console.log('adLoaded', adLoaded);
+  useEffect(() => {
+    console.log(1);
+    // console.log('adLoaded', adLoaded);
+    // console.log('adDismissed', adDismissed);
+
+    // setTimeout(() => {
+    //   console.log('2adLoaded', adLoaded);
+    //   console.log('2adDismissed', adDismissed);
+    // }, 4000);
+
+    const interstitial = InterstitialAd.createAd(TestIds.INTERSTITIAL);
+    // setInterstitialAd(interstitial);
+
+    const subscriptions = [
+      interstitial.addEventListener('adLoaded', a => {
+        // setAdLoaded(true);
+        console.log(a);
+        console.log(111);
+
+        // interstitial.show();
+      }),
+      interstitial.addEventListener('adDismissed', b => {
+        // setAdDismissed(true);
+        console.log(b);
+        console.log(222);
+      }),
+    ];
+
+    return () => subscriptions.forEach(sub => sub.remove());
+  }, []);
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <BannerAd size={BannerAdSize.BANNER} unitId={TestIds.BANNER} />
+      <TouchableOpacity onPress={() => console.log(adLoaded)}>
+        <Text>test 11</Text>
+      </TouchableOpacity>
       <Text>Home!</Text>
     </View>
   );
@@ -34,6 +72,7 @@ export default function App() {
 }
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { BannerAd, BannerAdSize, InterstitialAd, TestIds, useInterstitialAd } from '@react-native-admob/admob';
 
 function MyTabs() {
   return (

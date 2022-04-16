@@ -15,3 +15,11 @@ arch -arm64 brew install cocoapods
 
 5. brew tap homebrew/cask-versions
    brew install --cask zulu11
+
+6. android admob
+   main. ca-app-pub-6661482404483333~5303899586
+   banner. ca-app-pub-6661482404483333/6425409561
+
+7. ios admob
+   main. ca-app-pub-6661482404483333~5599127646
+   banner. ca-app-pub-6661482404483333/2783841163
