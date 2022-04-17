@@ -1,9 +1,27 @@
 import { BannerAd, BannerAdSize } from '@react-native-admob/admob';
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { adBannerId, getInterstitialId, getRewardedAd } from '../lib/admob';
 
 export default function Home() {
+  useEffect(() => {
+    getDfMobileCoupon();
+  }, []);
+
+  const getDfMobileCoupon = async () => {
+    try {
+      const { data } = await axios.get('https://api.pswoo.com/df-mobile-coupons', {
+        params: {
+          _sort: 'expireDate:DESC',
+        },
+      });
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <BannerAd size={BannerAdSize.BANNER} unitId={adBannerId} />

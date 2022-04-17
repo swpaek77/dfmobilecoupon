@@ -19,7 +19,7 @@ export default function Tabs() {
         name="Feed"
         component={Home}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: '쿠폰',
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home" color={color} size={size} />,
         }}
       />
@@ -27,7 +27,7 @@ export default function Tabs() {
         name="Setting"
         component={Setting}
         options={{
-          tabBarLabel: 'Setting',
+          tabBarLabel: '설정',
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="account" color={color} size={size} />,
         }}
       />
