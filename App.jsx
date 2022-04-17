@@ -1,10 +1,15 @@
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { globalInterstitial } from './src/lib/common';
+import React, { useEffect } from 'react';
+import { initAppOpenAd, initInterstitialId, initRewardedAd } from './src/lib/admob';
 import Tabs from './src/Tabs';
 
 export default function App() {
-  globalInterstitial;
+  useEffect(() => {
+    initAppOpenAd();
+    initInterstitialId();
+    initRewardedAd();
+  }, []);
+
   return (
     <NavigationContainer>
       <Tabs />
