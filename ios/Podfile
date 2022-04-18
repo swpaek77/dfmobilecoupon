@@ -22,6 +22,7 @@ target 'dfMobileCoupon' do
   )
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'Google-Mobile-Ads-SDK'
 
   target 'dfMobileCouponTests' do
     inherit! :complete

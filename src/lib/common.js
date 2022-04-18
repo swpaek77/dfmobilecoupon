@@ -2,7 +2,7 @@ import { Dimensions } from 'react-native';
 import messaging from '@react-native-firebase/messaging';
 
 export const version = '0.01';
-export const isTest = true;
+export const isTest = false;
 
 export const getDimensions = () => {
   return {
