@@ -37,6 +37,9 @@ arch -arm64 brew install cocoapods
 1. 앱 로고 생성
 2. 앱 스플래시 스크린 생성
 3. 안드로이드 키 생성
+
+- keytool -genkey -v -keystore dfMobileCoupon.keystore -alias dfMobileCoupon -keyalg RSA -keysize 2048 -validity 100000
+
 4. 애플 노티피케이션 생성
 5. 애플 개발자 가입?
 6. 구글 개발자 찾기

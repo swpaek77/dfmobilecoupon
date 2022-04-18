@@ -32,6 +32,7 @@ export default function CouponCard({ item, index }) {
     }
     if (item.isCopied) {
       result.push(code);
+      getInterstitialId();
     } else {
       result = result.filter(res => res !== code);
     }

@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import CouponSite from './pages/CouponSite';
 import Home from './pages/Home';
-import Setting from './pages/Setting';
+import MyCode from './pages/MyCode';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,12 +12,12 @@ export default function Tabs() {
     <Tab.Navigator
       initialRouteName="Feed"
       screenOptions={({ route }) => ({
-        tabBarActiveTintColor: '#e91e63',
-        // tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: '#4b6cb7',
+        tabBarInactiveTintColor: 'gray',
       })}
     >
       <Tab.Screen
-        name="Feed"
+        name="Home"
         component={Home}
         options={{
           title: '던파 모바일 쿠폰',
@@ -25,12 +26,21 @@ export default function Tabs() {
         }}
       />
       <Tab.Screen
-        name="Setting"
-        component={Setting}
+        name="MyCode"
+        component={MyCode}
         options={{
-          title: '설정',
-          tabBarLabel: '설정',
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="cog" color={color} size={size} />,
+          title: '나의 회원 코드',
+          tabBarLabel: '회원 코드',
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="archive" color={color} size={size} />,
+        }}
+      />
+      <Tab.Screen
+        name="CouponSite"
+        component={CouponSite}
+        options={{
+          title: '쿠폰 사이트',
+          tabBarLabel: '쿠폰 사이트',
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="web" color={color} size={size} />,
         }}
       />
     </Tab.Navigator>
