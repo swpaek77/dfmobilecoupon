@@ -1,13 +1,21 @@
 import { BannerAd, BannerAdSize } from '@react-native-admob/admob';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import React, { useEffect } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
-import { adBannerId, getInterstitialId, getRewardedAd } from '../lib/admob';
+import React, { useEffect, useState } from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
+import CouponCard from '../component/CouponCard';
+import { adBannerId } from '../lib/admob';
 
-export default function Home() {
+export default function Home({ navigation }) {
+  const [dfMobileCoupon, setDfMobileCoupon] = useState([]);
+
   useEffect(() => {
-    getDfMobileCoupon();
-  }, []);
+    const unsubscribe = navigation.addListener('focus', () => {
+      getDfMobileCoupon();
+    });
+
+    return unsubscribe;
+  }, [navigation]);
 
   const getDfMobileCoupon = async () => {
     try {
@@ -16,30 +24,34 @@ export default function Home() {
           _sort: 'expireDate:DESC',
         },
       });
-      console.log(data);
+
+      let couponList = data;
+      let copiedCouponList = await AsyncStorage.getItem('copiedCouponList');
+      if (copiedCouponList) {
+        copiedCouponList = JSON.parse(copiedCouponList);
+        couponList.forEach(res => {
+          if (copiedCouponList.includes(res.couponCode)) {
+            res.isCopied = true;
+          }
+        });
+      }
+
+      setDfMobileCoupon(couponList);
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <BannerAd size={BannerAdSize.BANNER} unitId={adBannerId} />
-      <TouchableOpacity
+    <View style={{ flex: 1 }}>
+      <BannerAd size={BannerAdSize.ADAPTIVE_BANNER} unitId={adBannerId} />
+      <FlatList
         //
-        style={{ padding: 10, backgroundColor: 'green' }}
-        onPress={() => getInterstitialId()}
-      >
-        <Text>2. 전면 광고</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        //
-        style={{ padding: 10, backgroundColor: 'green' }}
-        onPress={() => getRewardedAd()}
-      >
-        <Text>4. 보상형 광고</Text>
-      </TouchableOpacity>
-      <Text>Home!</Text>
+        data={dfMobileCoupon}
+        contentContainerStyle={{ paddingBottom: 30 }}
+        renderItem={({ item, index }) => <CouponCard item={item} index={index} />}
+        keyExtractor={(item, index) => index}
+      />
     </View>
   );
 }
