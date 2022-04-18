@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import CouponCard from '../component/CouponCard';
 import { adBannerId } from '../lib/admob';
+import { getUniqueId, getManufacturer, getModel } from 'react-native-device-info';
 
 export default function Home({ navigation }) {
   const [dfMobileCoupon, setDfMobileCoupon] = useState([]);
@@ -19,6 +20,9 @@ export default function Home({ navigation }) {
 
   const getDfMobileCoupon = async () => {
     try {
+      console.log('getUniqueId', getUniqueId());
+      console.log('getManufacturer', await getManufacturer());
+      console.log('getModel', getModel());
       const { data } = await axios.get('https://api.pswoo.com/df-mobile-coupons', {
         params: {
           _sort: 'expireDate:DESC',

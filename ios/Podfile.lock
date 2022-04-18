@@ -441,6 +441,8 @@ PODS:
     - React-Core
   - RNCClipboard (1.8.5):
     - React-Core
+  - RNDeviceInfo (8.7.0):
+    - React-Core
   - RNFBApp (14.7.0):
     - Firebase/CoreOnly (= 8.14.0)
     - React-Core
@@ -517,6 +519,7 @@ DEPENDENCIES:
   - "RNAdMob (from `../node_modules/@react-native-admob/admob`)"
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBMessaging (from `../node_modules/@react-native-firebase/messaging`)"
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -622,6 +625,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNCClipboard:
     :path: "../node_modules/@react-native-clipboard/clipboard"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBMessaging:
@@ -693,6 +698,7 @@ SPEC CHECKSUMS:
   RNAdMob: 4935c6e8283e4483914e6236392bce33ef170e67
   RNCAsyncStorage: 005c0e2f09575360f142d0d1f1f15e4ec575b1af
   RNCClipboard: cc054ad1e8a33d2a74cd13e565588b4ca928d8fd
+  RNDeviceInfo: 36286df381fcaf1933ff9d2d3c34ba2abeb2d8d8
   RNFBApp: 097a31d372b3db15b41c7a1a5c429433b0609e12
   RNFBMessaging: 06a7a73883f3f43da61507dbfcf4db2245c22869
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
